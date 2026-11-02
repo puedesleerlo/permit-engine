@@ -1,0 +1,181 @@
+/* Permit Engine public site: layout and page utilities. Every value comes from the design-system tokens. */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Above 1180px the 65px header is sticky: fragment jumps and focus scrolling stop just below it. */
+@media (min-width: 1181px) { html { scroll-padding-top: calc(65px + var(--pe-space-4)); } }
+body.site { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: var(--pe-surface); }
+.site-main { flex: 1 0 auto; }
+.site-wrap { width: 100%; max-width: var(--pe-content-max); margin: 0 auto; padding-left: max(var(--pe-space-4), env(safe-area-inset-left, 0px)); padding-right: max(var(--pe-space-4), env(safe-area-inset-right, 0px)); box-sizing: border-box; }
+/* Landscape phones are wider than 760px and still have a notch: keep the safe-area guard. */
+@media (min-width: 760px) { .site-wrap { padding-left: max(var(--pe-space-6), env(safe-area-inset-left, 0px)); padding-right: max(var(--pe-space-6), env(safe-area-inset-right, 0px)); } }
+
+/* Skip link */
+.site-skip { position: absolute; left: -9999px; top: 8px; z-index: 100; background: var(--pe-surface); color: var(--pe-primary); padding: var(--pe-space-2) var(--pe-space-3); border-radius: var(--pe-radius-sm); }
+.site-skip:focus { left: 8px; }
+
+/* Header */
+.site-hd { position: sticky; top: 0; z-index: var(--pe-z-sticky); background: var(--pe-surface); border-bottom: var(--pe-border-hairline) solid var(--pe-hairline); }
+.site-hd__row { display: flex; align-items: center; gap: var(--pe-space-5); min-height: 64px; flex-wrap: wrap; }
+.site-brand { display: inline-flex; align-items: center; gap: var(--pe-space-2); text-decoration: none; color: var(--pe-heading); font: 800 19px/1 var(--pe-font-display); letter-spacing: -0.02em; }
+.site-brand svg { flex: none; }
+.site-nav { margin-left: auto; min-width: 0; }
+.site-nav ul { display: flex; flex-wrap: wrap; gap: var(--pe-space-1); margin: 0; padding: 0; list-style: none; }
+.site-nav a { display: inline-flex; align-items: center; height: 36px; padding: 0 var(--pe-space-3); border-radius: var(--pe-radius-sm); text-decoration: none; color: var(--pe-ink); font: 600 var(--pe-text-label-size)/1 var(--pe-font-text); }
+.site-nav a:hover { background: var(--pe-surface-muted); color: var(--pe-primary); }
+.site-nav a[aria-current="page"] { background: var(--pe-surface-inverse); color: var(--pe-ink-inverse); }
+.site-theme { display: inline-flex; align-items: center; gap: var(--pe-space-2); height: 36px; padding: 0 var(--pe-space-3); border: var(--pe-border-hairline) solid var(--pe-hairline); border-radius: var(--pe-radius-sm); background: var(--pe-surface); color: var(--pe-ink); font: 600 13px/1 var(--pe-font-text); cursor: pointer; }
+.site-theme:hover { border-color: var(--pe-heading); color: var(--pe-heading); }
+/* The label never changes; aria-pressed carries the state ("Dark theme, pressed" while the dark theme is on). */
+.site-theme[aria-pressed="true"] { border-color: var(--pe-heading); background: var(--pe-surface-tint); }
+.site-theme:focus-visible, .site-nav a:focus-visible, .site-brand:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 2px; }
+/* Below 1180px the full row (brand, six links, labelled toggle) no longer fits on one line: the nav takes its own row
+   and wraps, so every link, including the current page, stays in view on a phone. */
+@media (max-width: 1180px) {
+  .site-hd { position: static; }
+  .site-hd__row { padding-top: var(--pe-space-3); padding-bottom: var(--pe-space-3); gap: var(--pe-space-3); }
+  .site-nav { order: 3; margin-left: 0; width: 100%; }
+  .site-theme { margin-left: auto; }
+}
+/* Visually hidden on narrow screens, but still the button's accessible name. */
+@media (max-width: 980px) {
+  .site-theme__label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+}
+
+/* Buttons: the design-system button with the owner's navy. Use with pe-button: "pe-button site-btn" (filled)
+   or "pe-button site-btn site-btn--secondary" (outlined). --pe-primary stays for text links only. */
+.site-btn { background: var(--pe-surface-inverse); color: var(--pe-ink-inverse); border-color: var(--pe-surface-inverse); }
+.site-btn:hover { background: color-mix(in srgb, var(--pe-surface-inverse) 82%, var(--pe-ink-inverse)); border-color: color-mix(in srgb, var(--pe-surface-inverse) 82%, var(--pe-ink-inverse)); color: var(--pe-ink-inverse); }
+.site-btn--secondary { background: var(--pe-surface); color: var(--pe-heading); border-color: var(--pe-heading); }
+.site-btn--secondary:hover { background: var(--pe-surface-tint); border-color: var(--pe-heading); color: var(--pe-heading); }
+[data-theme="dark"] .site-btn:not(.site-btn--secondary) { border-color: var(--pe-border-strong); }
+
+/* Key figures, step numerals, progress dots and note icons take the heading navy, not the link blue. */
+.site .pe-stat, .site .pe-flow__node--primary .pe-flow__step, .site .pe-note-box__icon { color: var(--pe-heading); }
+.site .pe-flow__link circle { fill: var(--pe-heading); }
+.site .pe-steps__item.is-done::before { background: var(--pe-heading); }
+.site .pe-steps__item.is-done .pe-steps__dot { background: var(--pe-heading); border-color: var(--pe-heading); }
+.site .pe-steps__item.is-current .pe-steps__dot { border-color: var(--pe-heading); box-shadow: inset 0 0 0 4px var(--pe-surface), inset 0 0 0 11px var(--pe-heading); }
+/* Plain-English notes inside components (step notes, a requirement's source line) are set as text, not code. */
+.site .pe-steps__meta.pe-mono, .site .pe-requirement__source.pe-mono { font-family: var(--pe-font-text); font-size: var(--pe-text-small-size); letter-spacing: 0; }
+
+/* Five-stage flows stay in one row only where each stage has room (1040px and up); narrower, they stack. */
+@media (max-width: 1039px) {
+  .pe-flow:has(> li:nth-child(5)) { grid-auto-flow: row; gap: var(--pe-space-5); }
+  .pe-flow:has(> li:nth-child(5)) .pe-flow__link { display: none; }
+}
+
+/* Page sections */
+.site-hero { padding-top: var(--pe-space-8); padding-bottom: var(--pe-space-7); border-bottom: var(--pe-border-hairline) solid var(--pe-hairline); }
+.site-hero__inner { display: grid; gap: var(--pe-space-5); }
+/* Phones. Below 640px of container the component sets the page title at the h2 size and its summary at body size,
+   which puts the hero below the section headings. Here the title stays between h1 and h2 (34px), the summary keeps
+   lead size, and stacked split descriptions in sections drop to body size, like the ruled ones. */
+@media (max-width: 671px) {
+  .site-hero .pe-section-heading--page .pe-section-heading__title { font-size: calc((var(--pe-text-h1-size) + var(--pe-text-h2-size)) / 2); line-height: 1.15; }
+  .site-hero .pe-section-heading--page .pe-section-heading__description { font-size: var(--pe-text-lead-size); line-height: var(--pe-text-lead-line); }
+  .site-section .pe-section-heading--split .pe-section-heading__description { font-size: var(--pe-text-body-size); line-height: var(--pe-text-body-line); }
+}
+.site-section { padding-top: var(--pe-space-8); padding-bottom: var(--pe-space-8); }
+.site-section + .site-section { padding-top: 0; }
+.site-section--muted { background: var(--pe-surface-muted); border-top: var(--pe-border-hairline) solid var(--pe-hairline); border-bottom: var(--pe-border-hairline) solid var(--pe-hairline); }
+.site-section--muted + .site-section, .site-section + .site-section--muted { padding-top: var(--pe-space-8); }
+.site-section--inverse { background: var(--pe-surface-inverse); color: var(--pe-ink-inverse); }
+.site-section--inverse + .site-section { padding-top: var(--pe-space-8); }
+.site-stack { display: grid; gap: var(--pe-space-5); align-content: start; }
+.site-stack--lg { gap: var(--pe-space-7); }
+.site-grid-2, .site-grid-3, .site-grid-4 { display: grid; gap: var(--pe-space-5); }
+@media (min-width: 760px) { .site-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .site-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .site-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1040px) { .site-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.site-grid-2 > *, .site-grid-3 > *, .site-grid-4 > * { min-width: 0; }
+.site-grid--top { align-items: start; }
+/* A NoteBox in a grid column fills the column, so its edge lines up with the panels, tables and charts beside it. */
+.site-grid-2 > .pe-note-box, .site-grid-2 > .site-stack > .pe-note-box { max-width: none; }
+
+/* Text */
+.site-lead { font: 400 var(--pe-text-lead-size)/var(--pe-text-lead-line) var(--pe-font-text); color: var(--pe-ink); max-width: var(--pe-measure); margin: 0; }
+.site-prose { display: grid; gap: var(--pe-space-4); align-content: start; max-width: var(--pe-measure); }
+.site-prose p, .site-prose li { font: 400 var(--pe-text-body-size)/var(--pe-text-body-line) var(--pe-font-text); margin: 0; }
+.site-prose ul, .site-prose ol { margin: 0; padding-left: 1.2em; display: grid; gap: var(--pe-space-2); }
+.site-prose strong { color: var(--pe-heading); }
+.site-muted { color: var(--pe-ink-muted); }
+
+/* The four-step band (navy, white text), shared with the poster */
+.site-band { list-style: none; margin: 0; padding: var(--pe-space-6); background: var(--pe-surface-inverse); color: var(--pe-ink-inverse); border-radius: var(--pe-radius-lg); display: grid; gap: var(--pe-space-5); }
+@media (min-width: 760px) { .site-band { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1040px) { .site-band { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.site-band li { display: grid; gap: var(--pe-space-2); align-content: start; }
+/* Pictograms use #ccdeea (sky-pale) for their light shapes, so a sky-pale medallion or tile would hide them.
+   Medallions on navy and dark-theme tiles are white. */
+.site-band__disc { width: 64px; height: 64px; border-radius: var(--pe-radius-full); background: #fff; display: grid; place-items: center; }
+.site .pe-stage__disc { background: #fff; }
+[data-theme="dark"] body.site { --pe-pict-ground: #fff; }
+.site-band__title { font: 700 var(--pe-text-h3-size)/var(--pe-text-h3-line) var(--pe-font-display); color: var(--pe-ink-inverse); letter-spacing: -0.01em; margin: 0; }
+.site-band__text { font: 400 var(--pe-text-small-size)/var(--pe-text-small-line) var(--pe-font-text); color: var(--pe-ink-inverse-muted); margin: 0; }
+
+/* Static items: pictogram tile, title, text, no box (boxes are kept for links, so nothing looks tappable that isn't) */
+.site-item { display: grid; gap: var(--pe-space-3); align-content: start; min-width: 0; margin: 0; }
+
+/* Cards that link to other pages */
+.site-card { display: grid; gap: var(--pe-space-3); align-content: start; padding: var(--pe-space-5); border: var(--pe-border-hairline) solid var(--pe-hairline); border-radius: var(--pe-radius-md); background: var(--pe-surface); text-decoration: none; color: inherit; transition: border-color var(--pe-duration-fast) var(--pe-ease); }
+a.site-card:hover { border-color: var(--pe-heading); }
+a.site-card:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 2px; }
+.site-card__pict { width: 64px; height: 64px; border-radius: var(--pe-radius-md); background: var(--pe-pict-ground); display: grid; place-items: center; }
+/* In light mode the tile is transparent: the pictogram (56px everywhere) starts on the text's left edge. */
+:root:not([data-theme="dark"]) .site-card__pict { width: auto; height: auto; justify-items: start; }
+.site-card__title { font: 700 var(--pe-text-h3-size)/var(--pe-text-h3-line) var(--pe-font-display); color: var(--pe-heading); margin: 0; }
+.site-card__text { font: 400 var(--pe-text-small-size)/var(--pe-text-small-line) var(--pe-font-text); color: var(--pe-ink); margin: 0; }
+.site-card__go { display: inline-flex; align-items: center; gap: var(--pe-space-1); font: 600 var(--pe-text-label-size)/1 var(--pe-font-text); color: var(--pe-primary); }
+
+/* Panels */
+.site-panel { padding: var(--pe-space-5); border: var(--pe-border-hairline) solid var(--pe-hairline); border-radius: var(--pe-radius-md); background: var(--pe-surface); display: grid; gap: var(--pe-space-4); align-content: start; min-width: 0; }
+/* A status badge with its explanation underneath (result lists, decided-case panels). */
+.site-badge-line { display: grid; gap: var(--pe-space-2); justify-items: start; align-content: start; }
+.site-figure { margin: 0; display: grid; gap: var(--pe-space-3); }
+.site-figure figcaption { font: 400 var(--pe-text-small-size)/var(--pe-text-small-line) var(--pe-font-text); color: var(--pe-ink-muted); max-width: var(--pe-measure); }
+.site-scroll { overflow-x: auto; }
+.site-scroll:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 2px; }
+
+/* Tables. Cell text that wraps keeps clear of the row rules, and headers may wrap on a phone. */
+.site .pe-table td { padding-top: var(--pe-space-3); padding-bottom: var(--pe-space-3); }
+.site .pe-table th { white-space: normal; padding-top: var(--pe-space-2); padding-bottom: var(--pe-space-2); }
+.site-cell { display: grid; }
+/* DataTable adds its sideways-scroll cue only from client script, which this static site does not run. Wrap it in
+   <div className="site-table-scroll">: the wrapper becomes the scroller, with the same edge shadows, and the frame
+   grows to the table's narrowest width. Only when the table can really scroll sideways on a phone, also give the
+   wrapper tabIndex={0} role="region" aria-label="<the table's name>". */
+.site-table-scroll {
+  overflow-x: auto; border-radius: var(--pe-radius-md);
+  background:
+    linear-gradient(to right, var(--pe-surface) 40%, transparent) left center / 32px 100% no-repeat local,
+    linear-gradient(to left, var(--pe-surface) 40%, transparent) right center / 32px 100% no-repeat local,
+    linear-gradient(to right, color-mix(in srgb, var(--pe-ink) 14%, transparent), transparent) left center / 14px 100% no-repeat scroll,
+    linear-gradient(to left, color-mix(in srgb, var(--pe-ink) 14%, transparent), transparent) right center / 14px 100% no-repeat scroll,
+    var(--pe-surface);
+}
+.site-table-scroll:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 2px; }
+.site-table-scroll .pe-table__frame { overflow: visible; width: fit-content; min-width: 100%; box-sizing: border-box; background: transparent; }
+
+/* Video placeholder */
+.site-video { aspect-ratio: 16 / 9; width: 100%; max-width: 760px; border: 2px dashed var(--pe-border-strong); border-radius: var(--pe-radius-lg); background: var(--pe-surface-muted); display: grid; place-content: center start; text-align: start; gap: var(--pe-space-2); padding: var(--pe-space-5); box-sizing: border-box; }
+.site-video p { margin: 0; }
+
+/* Previous / next */
+.site-pager { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: var(--pe-space-4); padding-top: var(--pe-space-7); padding-bottom: var(--pe-space-7); }
+/* The rule above the pager starts and ends at the content edge, like every other rule on the page. */
+.site-pager::before { content: ''; position: absolute; top: 0; left: var(--pe-space-4); right: var(--pe-space-4); border-top: var(--pe-border-hairline) solid var(--pe-hairline); }
+@media (min-width: 760px) { .site-pager::before { left: var(--pe-space-6); right: var(--pe-space-6); } }
+.site-pager__link { display: grid; gap: var(--pe-space-1); padding: var(--pe-space-4); border: var(--pe-border-hairline) solid var(--pe-hairline); border-radius: var(--pe-radius-md); text-decoration: none; color: inherit; }
+.site-pager__link:hover { border-color: var(--pe-heading); }
+.site-pager__link:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 2px; }
+.site-pager__link--next { text-align: right; justify-items: end; }
+.site-pager__dir { display: inline-flex; align-items: center; gap: var(--pe-space-1); font: 600 var(--pe-text-small-size)/1 var(--pe-font-text); color: var(--pe-ink-muted); }
+.site-pager__title { font: 700 var(--pe-text-h4-size)/var(--pe-text-h4-line) var(--pe-font-display); color: var(--pe-primary); }
+
+/* Footer */
+.site-ft { background: var(--pe-surface-inverse); color: var(--pe-ink-inverse-muted); }
+.site-ft__row { display: flex; justify-content: space-between; align-items: center; gap: var(--pe-space-5); flex-wrap: wrap; padding-top: var(--pe-space-6); padding-bottom: var(--pe-space-6); }
+.site-ft p { margin: 0; font: 400 var(--pe-text-small-size)/var(--pe-text-small-line) var(--pe-font-text); }
+.site-ft__name { font: 700 var(--pe-text-h4-size)/var(--pe-text-h4-line) var(--pe-font-display) !important; color: var(--pe-ink-inverse); }
+.site-ft__links { display: flex; gap: var(--pe-space-5); margin: 0; padding: 0; list-style: none; }
+.site-ft a { color: var(--pe-ink-inverse); font: 600 var(--pe-text-label-size)/1 var(--pe-font-text); }
+.site-ft a:focus-visible { outline: 2px solid var(--pe-sky); outline-offset: 2px; }

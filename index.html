@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Permit Engine · Alejandro Tabares</title>
+<title>Permit Engine, by Alejandro Tabares</title>
 <meta name="description" content="Permit Engine: AI decisions you can audit and correct. Demo and full system design by Alejandro Tabares.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -113,7 +113,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 .pe-video-frame { aspect-ratio: 16 / 9; width: 100%; max-width: 720px; border: 2px dashed var(--muted); border-radius: 12px; background: var(--soft); display: grid; place-content: center; text-align: center; padding: 24px; }
 .pe-video-title { margin: 0; font-size: 22px; font-weight: 700; color: var(--fg); }
 .pe-video-note { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
-.pe-links { margin: 0; font-size: 16px; }
+.pe-links { margin: 0; font-size: 16px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .pe-links a { color: var(--code); font-weight: 600; }
 
 </style>
@@ -122,7 +122,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
 <section class="pe-top" aria-labelledby="pe-title">
   <div class="pe-wrap">
-    <p class="pe-who">Alejandro Tabares · AIM · Heinz College, Carnegie Mellon University</p>
+    <p class="pe-who">Alejandro Tabares, AIM, Heinz College, Carnegie Mellon University</p>
     <h1 id="pe-title">Permit Engine</h1>
     <p class="pe-sub">AI decisions you can audit and correct</p>
     <p class="pe-lead">Governments and companies handle thousands of permit, benefit and loan applications. AI could speed them up, but no one will hand a decision to a system that can't explain itself or be corrected. Permit Engine splits each decision into checkable steps.</p>
@@ -138,14 +138,14 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
         <p class="pe-video-note">A one-minute walkthrough of the prototype deciding a permit will appear here.</p>
       </div>
     </div>
-    <p class="pe-links"><a href="https://www.linkedin.com/in/alejandro-tabares/">Connect on LinkedIn</a> · <a href="#design">Read the full system design</a></p>
+    <p class="pe-links"><a href="https://www.linkedin.com/in/alejandro-tabares/">Connect on LinkedIn</a><a href="#design">Read the full system design</a></p>
   </div>
 </section>
 <div id="design"></div>
 
 <div class="wrap">
   <header>
-    <div class="form-no">Evidence-Gated Decision Loop · Permit Engine demo</div>
+    <div class="form-no">Evidence-Gated Decision Loop: Permit Engine demo</div>
     <h1>Permit Engine</h1>
     <p class="sub">Demo: a city permit office for public events.</p>
   </header>
@@ -160,35 +160,35 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
   <svg viewBox="0 0 1500 270" role="img" aria-labelledby="stitle">
     <title id="stitle">The Permit Engine in five steps: a request arrives, AI fact-checks claims and assesses risk and impact, a written rule decides, unsure cases go to an officer, and officer rulings teach the system.</title>
     <rect class="box io" x="20" y="30" width="260" height="160" rx="6"/>
-    <text class="tag io" x="38" y="56">1 · INPUT</text>
+    <text class="tag io" x="38" y="56">1. INPUT</text>
     <text class="st" x="38" y="84">A request arrives</text>
     <text class="sb" x="38" y="112">Event permit: park, date,</text>
     <text class="sb" x="38" y="132">crowd size, claims and</text>
     <text class="sb" x="38" y="152">attachments</text>
 
     <rect class="box jev" x="320" y="30" width="260" height="160" rx="6"/>
-    <text class="tag jev" x="338" y="56">2 · AI DECISION SYSTEM</text>
+    <text class="tag jev" x="338" y="56">2. AI DECISION SYSTEM</text>
     <text class="st" x="338" y="84">AI judges the request</text>
     <text class="sb" x="338" y="112">Fact check: is each claim</text>
     <text class="sb" x="338" y="132">backed? Risk: how likely is</text>
     <text class="sb" x="338" y="152">trouble? Impact: how bad?</text>
 
     <rect class="box code" x="620" y="30" width="260" height="160" rx="6"/>
-    <text class="tag code" x="638" y="56">3 · CODE</text>
+    <text class="tag code" x="638" y="56">3. CODE</text>
     <text class="st" x="638" y="84">A written rule decides</text>
     <text class="sb" x="638" y="112">Weighs fact checks, risk</text>
     <text class="sb" x="638" y="132">and impact: approve, deny,</text>
     <text class="sb" x="638" y="152">or ask for missing proof</text>
 
     <rect class="box human" x="920" y="30" width="260" height="160" rx="6"/>
-    <text class="tag human" x="938" y="56">4 · PERMIT OFFICER</text>
+    <text class="tag human" x="938" y="56">4. PERMIT OFFICER</text>
     <text class="st" x="938" y="84">Unsure? A person decides</text>
     <text class="sb" x="938" y="112">Unsure cases, every denial</text>
     <text class="sb" x="938" y="132">and 1 in 10 spot checks</text>
     <text class="sb" x="938" y="152">go to an officer</text>
 
     <rect class="box learn" x="1220" y="30" width="260" height="160" rx="6"/>
-    <text class="tag learn" x="1238" y="56">5 · LEARNING</text>
+    <text class="tag learn" x="1238" y="56">5. LEARNING</text>
     <text class="st" x="1238" y="84">The system learns</text>
     <text class="sb" x="1238" y="112">Officer rulings move the</text>
     <text class="sb" x="1238" y="132">thresholds; repeated</text>
@@ -209,7 +209,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
   <div class="grid2">
     <div class="card">
-      <span class="k">Results · 240 test cases</span>
+      <span class="k">Results: 240 test cases</span>
       <h3>Permit Engine against a single AI judge</h3>
       <div class="tw"><table>
         <thead><tr><th>Measure</th><th>Single AI judge</th><th>Permit Engine</th></tr></thead>
@@ -243,7 +243,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
   </div>
 
   <div class="card">
-    <span class="k">What I built · individual project</span>
+    <span class="k">What I built: individual project</span>
     <div class="built"><span>Case generator: 240 requests with known answers</span><span>Staged AI decision system</span><span>Threshold learner</span><span>Evaluation harness against a single AI judge</span></div>
   </div>
 
@@ -278,11 +278,11 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <path class="ar learn" d="M1326,54 V88" marker-end="url(#hl)"/>
 
     <!-- model labels -->
-    <text class="mlab p" x="277" y="80" text-anchor="middle">POLICY · FORM RULES</text>
+    <text class="mlab p" x="277" y="80" text-anchor="middle">POLICY: FORM RULES</text>
     <text class="mlab w" x="476" y="80" text-anchor="middle">WORLD MODEL</text>
     <text class="mlab p" x="682" y="80" text-anchor="middle">POLICY</text>
-    <text class="mlab p" x="867" y="80" text-anchor="middle">POLICY · REGO</text>
-    <text class="mlab p" x="1057" y="80" text-anchor="middle">POLICY · THRESHOLDS</text>
+    <text class="mlab p" x="867" y="80" text-anchor="middle">POLICY: REGO</text>
+    <text class="mlab p" x="1057" y="80" text-anchor="middle">POLICY: THRESHOLDS</text>
 
     <!-- Row 1: pipeline -->
     <rect class="box io" x="20" y="90" width="155" height="250" rx="5"/>
@@ -296,8 +296,8 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="34" y="324">zone, exits, fee</text>
 
     <rect class="box code" x="205" y="90" width="145" height="250" rx="5"/>
-    <text class="tag code" x="219" y="112">CODE · FREE</text>
-    <text class="t" x="219" y="134">Stage 0 · Form</text>
+    <text class="tag code" x="219" y="112">CODE: FREE</text>
+    <text class="t" x="219" y="134">Stage 0: Form</text>
     <text class="b" x="219" y="160">Fee paid?</text>
     <text class="b" x="219" y="179">Park and date</text>
     <text class="b" x="219" y="198">allowed?</text>
@@ -306,7 +306,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box jev" x="396" y="90" width="160" height="250" rx="5"/>
     <text class="tag jev" x="410" y="112">DECISION SYSTEM</text>
-    <text class="t" x="410" y="134">Stage 1 · Terms, facts</text>
+    <text class="t" x="410" y="134">Stage 1: Terms, facts</text>
     <text class="b" x="410" y="160">Maps words to the</text>
     <text class="b" x="410" y="179">city's terms, then:</text>
     <text class="b" x="410" y="198">does an attachment</text>
@@ -319,20 +319,20 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box jev" x="602" y="90" width="160" height="120" rx="5"/>
     <text class="tag jev" x="616" y="112">DECISION SYSTEM</text>
-    <text class="t" x="616" y="134">Stage 2a · Risk</text>
+    <text class="t" x="616" y="134">Stage 2a: Risk</text>
     <text class="b" x="616" y="158">How likely is trouble</text>
     <text class="b" x="616" y="176">with crowd, noise or</text>
     <text class="b" x="616" y="194">exits? Low to high</text>
 
     <rect class="box jev" x="602" y="220" width="160" height="120" rx="5"/>
     <text class="tag jev" x="616" y="242">DECISION SYSTEM</text>
-    <text class="t" x="616" y="264">Stage 2b · Impact</text>
+    <text class="t" x="616" y="264">Stage 2b: Impact</text>
     <text class="b" x="616" y="288">How bad if it goes</text>
     <text class="b" x="616" y="306">wrong? Crowd size,</text>
     <text class="b" x="616" y="324">alcohol, night noise</text>
 
     <rect class="box code" x="792" y="90" width="150" height="250" rx="5"/>
-    <text class="tag code" x="806" y="112">CODE · REGO</text>
+    <text class="tag code" x="806" y="112">CODE: REGO</text>
     <text class="t" x="806" y="134">Decision rule</text>
     <text class="b" x="806" y="160">All conditions must</text>
     <text class="b" x="806" y="179">hold: p multiplies</text>
@@ -345,7 +345,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="806" y="322">chance approval is right</text>
 
     <rect class="box learn" x="972" y="90" width="170" height="250" rx="5"/>
-    <text class="tag learn" x="986" y="112">CODE · LEARNED BAND</text>
+    <text class="tag learn" x="986" y="112">CODE: LEARNED BAND</text>
     <text class="t" x="986" y="134">Officer needed?</text>
     <text class="b" x="986" y="160">If p is in the unsure</text>
     <text class="b" x="986" y="179">band, an officer decides</text>
@@ -386,7 +386,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <!-- Row 2 -->
     <rect class="box obs" x="20" y="380" width="330" height="130" rx="5"/>
-    <text class="tag obs" x="34" y="402">DECISION SYSTEM · WATCHED ONLY</text>
+    <text class="tag obs" x="34" y="402">DECISION SYSTEM: WATCHED ONLY</text>
     <text class="t" x="34" y="424">Pressure meter</text>
     <text class="b" x="34" y="448">Scores how pushy the letter is: urgency,</text>
     <text class="b" x="34" y="466">repetition, "I know the mayor".</text>
@@ -438,7 +438,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <!-- Row 3: officer review -->
     <rect class="box human" x="20" y="550" width="1460" height="230" rx="6"/>
-    <text class="tag human" x="40" y="574">PERMIT OFFICER · REVIEW</text>
+    <text class="tag human" x="40" y="574">PERMIT OFFICER: REVIEW</text>
     <text class="T" x="40" y="598">Was the decision right? If not, whose mistake was it, and should the system learn from it?</text>
 
     <line class="divider" x1="312" y1="615" x2="312" y2="765"/>
@@ -446,7 +446,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <line class="divider" x1="896" y1="615" x2="896" y2="765"/>
     <line class="divider" x1="1188" y1="615" x2="1188" y2="765"/>
 
-    <text class="t" x="40" y="632">1 · What reaches an officer</text>
+    <text class="t" x="40" y="632">1. What reaches an officer</text>
     <text class="b" x="40" y="654">Every unsure case</text>
     <text class="b" x="40" y="672">Every denial, to sign</text>
     <text class="b" x="40" y="690">1 in 10 automatic decisions,</text>
@@ -454,21 +454,21 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="b" x="40" y="726">Every appeal from an applicant</text>
     <text class="m" x="40" y="750">No more than officers can handle</text>
 
-    <text class="t" x="332" y="632">2 · How the officer checks</text>
+    <text class="t" x="332" y="632">2. How the officer checks</text>
     <text class="b" x="332" y="654">Reads the original request and</text>
     <text class="b" x="332" y="672">attachments, not the system's summary.</text>
     <text class="b" x="332" y="690">On spot checks, decides first, then</text>
     <text class="b" x="332" y="708">compares with the system's answer.</text>
     <text class="m" x="332" y="750">The pressure meter is hidden from officers</text>
 
-    <text class="t" x="624" y="632">3 · Whose mistake?</text>
+    <text class="t" x="624" y="632">3. Whose mistake?</text>
     <text class="b" x="624" y="654">System wrong: fix the system</text>
     <text class="b" x="624" y="672">Officer wrong: train the officer</text>
     <text class="b" x="624" y="690">Ordinance changed: update the rules</text>
     <text class="b" x="624" y="708">Odd one-off case: file it, don't learn</text>
     <text class="m" x="624" y="750">Settled before the system learns anything</text>
 
-    <text class="t" x="916" y="632">4 · If the system was wrong</text>
+    <text class="t" x="916" y="632">4. If the system was wrong</text>
     <text class="code-e" x="916" y="654">E0</text><text class="b" x="942" y="654">Misread a term</text><text class="mlab w" x="1176" y="654" text-anchor="end">WORLD</text>
     <text class="code-e" x="916" y="672">E1</text><text class="b" x="942" y="672">Misread an attachment</text><text class="mlab w" x="1176" y="672" text-anchor="end">WORLD</text>
     <text class="code-e" x="916" y="690">E2</text><text class="b" x="942" y="690">Misjudged a risk</text><text class="mlab p" x="1176" y="690" text-anchor="end">POLICY</text>
@@ -476,7 +476,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="code-e" x="916" y="726">E4</text><text class="b" x="942" y="726">Weighted rules wrong</text><text class="mlab p" x="1176" y="726" text-anchor="end">POLICY</text>
     <text class="code-e" x="916" y="744">E5</text><text class="b" x="942" y="744">Ordinance lacks a rule</text><text class="mlab p" x="1176" y="744" text-anchor="end">POLICY</text>
 
-    <text class="t" x="1208" y="632">5 · What happens next</text>
+    <text class="t" x="1208" y="632">5. What happens next</text>
     <text class="b" x="1208" y="654">System wrong or right → Loop 1</text>
     <text class="b" x="1208" y="672">E0, E1 → knowledge steward</text>
     <text class="b" x="1208" y="690">E2 to E5, new ordinance → Loop 2</text>
@@ -493,7 +493,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <!-- Row 4: loops -->
     <rect class="box learn" x="20" y="810" width="475" height="160" rx="5"/>
-    <text class="tag learn" x="34" y="832">LOOP 1 · SINGLE LOOP · EVERY CASE</text>
+    <text class="tag learn" x="34" y="832">LOOP 1: SINGLE LOOP, EVERY CASE</text>
     <text class="t" x="34" y="854">Are we deciding cases right?</text>
     <text class="b" x="34" y="880">When an officer overturns a decision, the system moves</text>
     <text class="b" x="34" y="900">its gates: it decides alone less often on cases like that</text>
@@ -501,7 +501,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="34" y="954">Moves the thresholds only; the rules stay the same</text>
 
     <rect class="box learn" x="512" y="810" width="475" height="160" rx="5"/>
-    <text class="tag learn" x="526" y="832">LOOP 2 · DOUBLE LOOP · WEEKLY</text>
+    <text class="tag learn" x="526" y="832">LOOP 2: DOUBLE LOOP, WEEKLY</text>
     <text class="t" x="526" y="854">Are we using the right rules?</text>
     <text class="b" x="526" y="878">When the same mistake repeats, such as food trucks with no</text>
     <text class="b" x="526" y="896">fire permit, it becomes a lesson: a new check that can only</text>
@@ -510,7 +510,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="526" y="954">Changes the rules the system decides with</text>
 
     <rect class="box learn" x="1005" y="810" width="475" height="160" rx="5"/>
-    <text class="tag learn" x="1019" y="832">LOOP 3 · LEARNING HOW TO LEARN · EVERY 50 CASES</text>
+    <text class="tag learn" x="1019" y="832">LOOP 3: LEARNING HOW TO LEARN, EVERY 50 CASES</text>
     <text class="t" x="1019" y="854">Is the system learning the right way?</text>
     <text class="b" x="1019" y="880">Run the free checks first and the AI only when needed.</text>
     <text class="b" x="1019" y="900">Set how fast Loop 1 moves and how many cases officers</text>
@@ -522,7 +522,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <!-- Row 5: outcomes and replay -->
     <rect class="box dep" x="20" y="1000" width="475" height="100" rx="5"/>
-    <text class="tag dep" x="34" y="1022">REAL DEPLOYMENT ONLY · WEEKS LATER</text>
+    <text class="tag dep" x="34" y="1022">REAL DEPLOYMENT ONLY: WEEKS LATER</text>
     <text class="t" x="34" y="1044">What actually happened</text>
     <text class="b" x="34" y="1068">Inspections, noise complaints and incidents at the event,</text>
     <text class="b" x="34" y="1086">matched to the case file. In the demo: the answer key.</text>
@@ -611,7 +611,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box jev" x="272" y="60" width="200" height="240" rx="5"/>
     <text class="tag jev" x="286" y="82">DECISION SYSTEM</text>
-    <text class="t" x="286" y="104">1 · Claim graph</text>
+    <text class="t" x="286" y="104">1. Claim graph</text>
     <text class="b" x="286" y="130">Turns jargon into a graph:</text>
     <text class="b" x="286" y="149">intended outcome →</text>
     <text class="b" x="286" y="168">what is required →</text>
@@ -622,7 +622,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box jev" x="524" y="60" width="200" height="240" rx="5"/>
     <text class="tag jev" x="538" y="82">GRAPH SKILL + AI</text>
-    <text class="t" x="538" y="104">2 · Disambiguation</text>
+    <text class="t" x="538" y="104">2. Disambiguation</text>
     <text class="b" x="538" y="130">Walks the ontology to</text>
     <text class="b" x="538" y="149">find the best concept</text>
     <text class="b" x="538" y="168">for each term: exact,</text>
@@ -634,7 +634,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box jev" x="776" y="60" width="200" height="240" rx="5"/>
     <text class="tag jev" x="790" y="82">DECISION SYSTEM</text>
-    <text class="t" x="790" y="104">3 · Evidence judge</text>
+    <text class="t" x="790" y="104">3. Evidence judge</text>
     <text class="b" x="790" y="130">Does the attachment</text>
     <text class="b" x="790" y="149">establish the claim?</text>
     <text class="b" x="790" y="168">Backed, not backed or</text>
@@ -645,7 +645,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box code" x="1028" y="60" width="200" height="240" rx="5"/>
     <text class="tag code" x="1042" y="82">CODE</text>
-    <text class="t" x="1042" y="104">4 · Case classifier</text>
+    <text class="t" x="1042" y="104">4. Case classifier</text>
     <text class="b" x="1042" y="130">Places the case in the</text>
     <text class="b" x="1042" y="149">ontology: event type,</text>
     <text class="b" x="1042" y="168">crowd band, alcohol,</text>
@@ -654,8 +654,8 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="1042" y="252">not which rules apply</text>
 
     <rect class="box code" x="1280" y="60" width="200" height="240" rx="5"/>
-    <text class="tag code" x="1294" y="82">CODE · OUTPUT</text>
-    <text class="t" x="1294" y="104">5 · Adapter</text>
+    <text class="tag code" x="1294" y="82">CODE: OUTPUT</text>
+    <text class="t" x="1294" y="104">5. Adapter</text>
     <text class="b" x="1294" y="130">Case facts as JSON:</text>
     <text class="b" x="1294" y="149">concept IDs, evidence</text>
     <text class="b" x="1294" y="168">status, confidence and</text>
@@ -681,7 +681,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <path class="ar human" d="M220,435 H270" marker-end="url(#wh)"/><text class="al" x="246" y="427" text-anchor="middle">edits</text>
 
     <rect class="box state" x="272" y="350" width="956" height="170" rx="5"/>
-    <text class="tag state" x="292" y="372">SHARED RECORD · TRIPLE STORE · VERSIONED</text>
+    <text class="tag state" x="292" y="372">SHARED RECORD: TRIPLE STORE, VERSIONED</text>
     <text class="t" x="292" y="394">Knowledge graph</text>
     <line class="sep" x1="521" y1="410" x2="521" y2="490"/>
     <line class="sep" x1="760" y1="410" x2="760" y2="490"/>
@@ -722,19 +722,19 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <!-- Row 3: pending actions -->
     <path class="ar learn" d="M750,580 V522" marker-end="url(#wl)"/><text class="al" x="760" y="556">approved changes, new graph version</text>
     <rect class="box learn" x="20" y="580" width="1460" height="170" rx="5"/>
-    <text class="tag learn" x="40" y="602">TO THE SHARED REVIEW CORE · PENDING ACTIONS</text>
+    <text class="tag learn" x="40" y="602">TO THE SHARED REVIEW CORE: PENDING ACTIONS</text>
     <text class="t" x="40" y="624">What the world model asks a person to do</text>
     <line class="sep" x1="380" y1="642" x2="380" y2="738"/>
     <line class="sep" x1="740" y1="642" x2="740" y2="738"/>
     <line class="sep" x1="1100" y1="642" x2="1100" y2="738"/>
 
-    <text class="mlab" x="40" y="656">FROM 2 · DISAMBIGUATION</text>
+    <text class="mlab" x="40" y="656">FROM 2. DISAMBIGUATION</text>
     <text class="t" x="40" y="676">Add or map a term</text>
     <text class="b" x="40" y="698">"Block party" matched no concept.</text>
     <text class="b" x="40" y="716">The steward maps it or adds a</text>
     <text class="b" x="40" y="734">concept with its source.</text>
 
-    <text class="mlab" x="400" y="656">FROM 3 · EVIDENCE JUDGE</text>
+    <text class="mlab" x="400" y="656">FROM 3. EVIDENCE JUDGE</text>
     <text class="t" x="400" y="676">Review an evidence claim</text>
     <text class="b" x="400" y="698">The insurance letter names another</text>
     <text class="b" x="400" y="716">venue. An officer rules on the</text>
@@ -771,7 +771,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <!-- Row 1 -->
     <rect class="box io" x="20" y="60" width="200" height="250" rx="5"/>
-    <text class="tag io" x="34" y="82">INPUT · FROM WORLD MODEL</text>
+    <text class="tag io" x="34" y="82">INPUT: FROM WORLD MODEL</text>
     <text class="t" x="34" y="104">Case facts</text>
     <text class="b" x="34" y="130">Concept IDs, evidence</text>
     <text class="b" x="34" y="149">status and confidence</text>
@@ -780,8 +780,8 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="34" y="262">never what should happen</text>
 
     <rect class="box code" x="272" y="60" width="200" height="250" rx="5"/>
-    <text class="tag code" x="286" y="82">CODE · REGO</text>
-    <text class="t" x="286" y="104">1 · Rule selector</text>
+    <text class="tag code" x="286" y="82">CODE: REGO</text>
+    <text class="t" x="286" y="104">1. Rule selector</text>
     <text class="b" x="286" y="130">Picks the conditions</text>
     <text class="b" x="286" y="149">of the ordinance that</text>
     <text class="b" x="286" y="168">apply to this case class</text>
@@ -791,22 +791,22 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="286" y="294">exits, fee</text>
 
     <rect class="box code" x="524" y="60" width="200" height="116" rx="5"/>
-    <text class="tag code" x="538" y="82">CODE · REGO</text>
-    <text class="t" x="538" y="104">2a · Fixed checks</text>
+    <text class="tag code" x="538" y="82">CODE: REGO</text>
+    <text class="t" x="538" y="104">2a. Fixed checks</text>
     <text class="b" x="538" y="128">Fee, zone, date, and</text>
     <text class="b" x="538" y="146">required proof present</text>
     <text class="m" x="538" y="166">Each check cites its clause</text>
 
     <rect class="box jev" x="524" y="188" width="200" height="122" rx="5"/>
-    <text class="tag jev" x="538" y="210">DECISION SYSTEM · JEV</text>
-    <text class="t" x="538" y="232">2b · Judgment checks</text>
+    <text class="tag jev" x="538" y="210">DECISION SYSTEM: JEV</text>
+    <text class="t" x="538" y="232">2b. Judgment checks</text>
     <text class="b" x="538" y="256">Is the fire plan adequate</text>
     <text class="b" x="538" y="274">for 600 people?</text>
     <text class="m" x="538" y="296">One Jev tree per clause</text>
 
     <rect class="box jev" x="776" y="60" width="200" height="250" rx="5"/>
     <text class="tag jev" x="790" y="82">JEV TREES + REGO</text>
-    <text class="t" x="790" y="104">3 · Risk and impact</text>
+    <text class="t" x="790" y="104">3. Risk and impact</text>
     <text class="b" x="790" y="130">Likelihood: the world</text>
     <text class="b" x="790" y="149">estimate, adjusted by</text>
     <text class="b" x="790" y="168">the judged facts</text>
@@ -817,7 +817,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box jev" x="1028" y="60" width="200" height="250" rx="5"/>
     <text class="tag jev" x="1042" y="82">DECISION SYSTEM</text>
-    <text class="t" x="1042" y="104">4 · Lessons</text>
+    <text class="t" x="1042" y="104">4. Lessons</text>
     <text class="b" x="1042" y="130">Past failures as checks,</text>
     <text class="b" x="1042" y="149">run only when they apply</text>
     <text class="b" x="1042" y="175">Known exceptions, such</text>
@@ -828,8 +828,8 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="1042" y="278">approved rules</text>
 
     <rect class="box code" x="1280" y="60" width="200" height="250" rx="5"/>
-    <text class="tag code" x="1294" y="82">CODE · REGO</text>
-    <text class="t" x="1294" y="104">5 · Decision</text>
+    <text class="tag code" x="1294" y="82">CODE: REGO</text>
+    <text class="t" x="1294" y="104">5. Decision</text>
     <text class="b" x="1294" y="130">A condition fails: deny</text>
     <text class="b" x="1294" y="149">Proof unknown: ask for it</text>
     <text class="b" x="1294" y="168">p over threshold: approve</text>
@@ -857,7 +857,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <path class="ar human" d="M220,455 H270" marker-end="url(#ph)"/><text class="al" x="246" y="447" text-anchor="middle">sets</text>
 
     <rect class="box learn" x="272" y="370" width="956" height="170" rx="5"/>
-    <text class="tag learn" x="292" y="392">PARAMETERS · VERSIONED · BOUNDED</text>
+    <text class="tag learn" x="292" y="392">PARAMETERS: VERSIONED, BOUNDED</text>
     <text class="t" x="292" y="414">Thresholds and parameters</text>
     <line class="sep" x1="521" y1="430" x2="521" y2="508"/>
     <line class="sep" x1="760" y1="430" x2="760" y2="508"/>
@@ -896,19 +896,19 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <!-- Row 3 -->
     <path class="ar learn" d="M750,600 V542" marker-end="url(#pl)"/><text class="al" x="760" y="576">approved changes, new policy bundle</text>
     <rect class="box learn" x="20" y="600" width="1460" height="170" rx="5"/>
-    <text class="tag learn" x="40" y="622">TO THE SHARED REVIEW CORE · PENDING ACTIONS</text>
+    <text class="tag learn" x="40" y="622">TO THE SHARED REVIEW CORE: PENDING ACTIONS</text>
     <text class="t" x="40" y="644">What the policy model asks a person to do</text>
     <line class="sep" x1="380" y1="662" x2="380" y2="758"/>
     <line class="sep" x1="740" y1="662" x2="740" y2="758"/>
     <line class="sep" x1="1100" y1="662" x2="1100" y2="758"/>
 
-    <text class="mlab" x="40" y="676">FROM 5 · DECISION</text>
+    <text class="mlab" x="40" y="676">FROM 5. DECISION</text>
     <text class="t" x="40" y="696">Decide an unsure case</text>
     <text class="b" x="40" y="718">Unsure p, a red flag, every denial</text>
     <text class="b" x="40" y="736">and 1 in 10 spot checks go to an</text>
     <text class="b" x="40" y="754">officer, who reads the originals.</text>
 
-    <text class="mlab" x="400" y="676">FROM 1 · RULE SELECTOR</text>
+    <text class="mlab" x="400" y="676">FROM 1. RULE SELECTOR</text>
     <text class="t" x="400" y="696">Fill a rule gap</text>
     <text class="b" x="400" y="718">No rule fits this case class. The</text>
     <text class="b" x="400" y="736">policy owner writes a rule or</text>
@@ -940,20 +940,20 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     </defs>
 
     <!-- Row 1: eligibility -->
-    <text class="mlab" x="20" y="34">ELIGIBILITY · IS EVERY CONDITION MET?</text>
+    <text class="mlab" x="20" y="34">ELIGIBILITY: IS EVERY CONDITION MET?</text>
 
     <rect class="box code" x="20" y="60" width="220" height="85" rx="5"/>
-    <text class="tag code" x="34" y="82">CODE · REGO</text>
+    <text class="tag code" x="34" y="82">CODE: REGO</text>
     <text class="t" x="34" y="104">Fixed checks</text>
     <text class="b" x="34" y="128">Fee, zone, date, proof sent</text>
 
     <rect class="box jev" x="20" y="165" width="220" height="85" rx="5"/>
-    <text class="tag jev" x="34" y="187">DECISION SYSTEM · ×3</text>
+    <text class="tag jev" x="34" y="187">DECISION SYSTEM: ×3</text>
     <text class="t" x="34" y="209">Judgment checks</text>
     <text class="b" x="34" y="233">Evidence and adequacy</text>
 
     <rect class="box learn" x="290" y="60" width="250" height="190" rx="5"/>
-    <text class="tag learn" x="304" y="82">LEARNED · CALIBRATION</text>
+    <text class="tag learn" x="304" y="82">LEARNED: CALIBRATION</text>
     <text class="t" x="304" y="104">Calibrate</text>
     <text class="b" x="304" y="130">Turns a raw score s into</text>
     <text class="b mono" x="304" y="150">q = P(met | s)</text>
@@ -963,7 +963,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="304" y="232">Capped at 0.9 at the start.</text>
 
     <rect class="box code" x="590" y="60" width="250" height="190" rx="5"/>
-    <text class="tag code" x="604" y="82">CODE · REGO</text>
+    <text class="tag code" x="604" y="82">CODE: REGO</text>
     <text class="t" x="604" y="104">Condition status</text>
     <text class="b" x="604" y="130">Met: q ≥ q_hi</text>
     <text class="b" x="604" y="149">Failed: a fixed check fails</text>
@@ -972,7 +972,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="b" x="604" y="206">Unsure: anything else</text>
 
     <rect class="box code" x="890" y="60" width="240" height="190" rx="5"/>
-    <text class="tag code" x="904" y="82">CODE · REGO</text>
+    <text class="tag code" x="904" y="82">CODE: REGO</text>
     <text class="t" x="904" y="104">Eligibility</text>
     <text class="b mono" x="904" y="130">p = Π q_i</text>
     <text class="b" x="904" y="154">over the applicable</text>
@@ -988,7 +988,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <path class="ar" d="M1130,155 H1178" marker-end="url(#fa)"/><text class="al" x="1154" y="147" text-anchor="middle">p</text>
 
     <!-- Row 2: impact -->
-    <text class="mlab" x="20" y="290">IMPACT · HOW SURE MUST WE BE?</text>
+    <text class="mlab" x="20" y="290">IMPACT: HOW SURE MUST WE BE?</text>
 
     <rect class="box io" x="20" y="310" width="220" height="150" rx="5"/>
     <text class="tag io" x="34" y="332">FROM CASE FACTS</text>
@@ -998,14 +998,14 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="34" y="430">Each scaled 0 to 1</text>
 
     <rect class="box learn" x="290" y="310" width="250" height="150" rx="5"/>
-    <text class="tag learn" x="304" y="332">LEARNED · WEIGHTED SUM</text>
+    <text class="tag learn" x="304" y="332">LEARNED: WEIGHTED SUM</text>
     <text class="t" x="304" y="354">Impact score</text>
-    <text class="b mono" x="304" y="380">I = Σ w_k · a_k</text>
+    <text class="b mono" x="304" y="380">I = Σ w_k: a_k</text>
     <text class="b" x="304" y="404">Weights learned in Loop 1,</text>
     <text class="b" x="304" y="422">inside the owner's bounds</text>
 
     <rect class="box code" x="590" y="310" width="250" height="150" rx="5"/>
-    <text class="tag code" x="604" y="332">CODE · REGO</text>
+    <text class="tag code" x="604" y="332">CODE: REGO</text>
     <text class="t" x="604" y="354">Impact band</text>
     <text class="b" x="604" y="380">Low, medium or high, from</text>
     <text class="b" x="604" y="398">the city's cut points</text>
@@ -1026,7 +1026,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <!-- Decision -->
     <rect class="box code" x="1180" y="60" width="300" height="400" rx="5"/>
-    <text class="tag code" x="1196" y="82">CODE · REGO · FIRST MATCH WINS</text>
+    <text class="tag code" x="1196" y="82">CODE: REGO, FIRST MATCH WINS</text>
     <text class="t" x="1196" y="104">Decision</text>
     <text class="code-e" x="1196" y="138">1</text><text class="b" x="1216" y="138">Red flag or high band</text>
     <text class="b" x="1216" y="157">→ an officer decides</text>
@@ -1208,7 +1208,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="T" x="20" y="36">Should learning be split by model, or shared?</text>
 
     <!-- Option A -->
-    <text class="t" x="20" y="72">A · Split: each model learns on its own</text>
+    <text class="t" x="20" y="72">A: Split, each model learns on its own</text>
     <rect class="box io" x="20" y="92" width="170" height="50" rx="5"/><text class="t" x="36" y="122">World model</text>
     <rect class="box io" x="20" y="162" width="170" height="50" rx="5"/><text class="t" x="36" y="192">Policy model</text>
     <rect class="box learn" x="240" y="92" width="180" height="50" rx="5"/><text class="b" x="256" y="122">World queue + UI</text>
@@ -1228,7 +1228,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <line class="sep" x1="750" y1="56" x2="750" y2="220"/>
 
     <!-- Option B -->
-    <text class="t" x="780" y="72">B · Shared core, handlers per kind (recommended)</text>
+    <text class="t" x="780" y="72">B: Shared core, handlers per kind (recommended)</text>
     <rect class="box io" x="780" y="92" width="170" height="50" rx="5"/><text class="t" x="796" y="122">World model</text>
     <rect class="box io" x="780" y="162" width="170" height="50" rx="5"/><text class="t" x="796" y="192">Policy model</text>
     <rect class="box learn" x="1000" y="92" width="200" height="120" rx="5"/>
@@ -1267,7 +1267,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box code" x="272" y="330" width="200" height="230" rx="5"/>
     <text class="tag code" x="286" y="352">CODE</text>
-    <text class="t" x="286" y="374">1 · Route</text>
+    <text class="t" x="286" y="374">1. Route</text>
     <text class="b" x="286" y="400">Reads the item's side</text>
     <text class="b" x="286" y="418">and kind, assigns an</text>
     <text class="b" x="286" y="436">owner and a deadline</text>
@@ -1278,7 +1278,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box code" x="524" y="330" width="200" height="230" rx="5"/>
     <text class="tag code" x="538" y="352">CODE + DECISION SYSTEM</text>
-    <text class="t" x="538" y="374">2 · Validate</text>
+    <text class="t" x="538" y="374">2. Validate</text>
     <text class="b" x="538" y="400">World items: check the</text>
     <text class="b" x="538" y="418">source and the evidence</text>
     <text class="b" x="538" y="444">Policy items: replay on</text>
@@ -1288,7 +1288,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box human" x="776" y="330" width="200" height="230" rx="5"/>
     <text class="tag human" x="790" y="352">PEOPLE</text>
-    <text class="t" x="790" y="374">3 · Approve</text>
+    <text class="t" x="790" y="374">3. Approve</text>
     <text class="b" x="790" y="400">The owner decides on</text>
     <text class="b" x="790" y="418">the review screen. The</text>
     <text class="b" x="790" y="436">author can't approve</text>
@@ -1298,7 +1298,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <rect class="box code" x="1028" y="330" width="200" height="230" rx="5"/>
     <text class="tag code" x="1042" y="352">CODE</text>
-    <text class="t" x="1042" y="374">4 · Release</text>
+    <text class="t" x="1042" y="374">4. Release</text>
     <text class="b" x="1042" y="400">New graph version or</text>
     <text class="b" x="1042" y="418">policy bundle, signed,</text>
     <text class="b" x="1042" y="436">with an owner and a</text>
@@ -1307,8 +1307,8 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <text class="m" x="1042" y="532">previous version</text>
 
     <rect class="box learn" x="1280" y="330" width="200" height="230" rx="5"/>
-    <text class="tag learn" x="1294" y="352">CODE · WATCHES OUTCOMES</text>
-    <text class="t" x="1294" y="374">5 · Monitor</text>
+    <text class="tag learn" x="1294" y="352">CODE: WATCHES OUTCOMES</text>
+    <text class="t" x="1294" y="374">5. Monitor</text>
     <text class="b" x="1294" y="400">Tracks overrides,</text>
     <text class="b" x="1294" y="418">appeals and outcomes</text>
     <text class="b" x="1294" y="436">for the changed part</text>
@@ -1329,7 +1329,7 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
     <!-- Row 3: log and UI -->
     <path class="ar state" d="M636,560 V628" marker-end="url(#cs)"/><text class="al" x="646" y="616">every step writes</text>
     <rect class="box state" x="272" y="630" width="728" height="170" rx="5"/>
-    <text class="tag state" x="292" y="652">SHARED RECORD · APPEND-ONLY</text>
+    <text class="tag state" x="292" y="652">SHARED RECORD: APPEND-ONLY</text>
     <text class="t" x="292" y="674">Event log</text>
     <text class="b" x="292" y="700">Every item, routing, replay report, approval, release and rollback, with the</text>
     <text class="b" x="292" y="718">world and policy versions involved. Entries are added, never edited.</text>
@@ -1337,10 +1337,10 @@ td.pending{color:var(--muted);font-family:var(--mono);font-size:12.5px}
 
     <path class="ar state" d="M1000,715 H1026" marker-end="url(#cs)"/>
     <rect class="box human" x="1028" y="630" width="452" height="170" rx="5"/>
-    <text class="tag human" x="1048" y="652">PEOPLE · REVIEW AND AUDIT SCREEN</text>
+    <text class="tag human" x="1048" y="652">PEOPLE: REVIEW AND AUDIT SCREEN</text>
     <text class="t" x="1048" y="674">One screen for owners and auditors</text>
-    <text class="b" x="1048" y="700">Pending: add a term · review evidence · approve</text>
-    <text class="b" x="1048" y="718">a lesson · move a threshold · fill a rule gap</text>
+    <text class="b" x="1048" y="700">Pending: add a term, review evidence, approve</text>
+    <text class="b" x="1048" y="718">a lesson: move a threshold, fill a rule gap</text>
     <text class="b" x="1048" y="744">Over time: errors by kind, overrides, days to fix,</text>
     <text class="b" x="1048" y="762">and which version changed what</text>
     <path class="ar human" d="M1100,630 V606 H876 V562" marker-end="url(#ch)"/><text class="al" x="1108" y="620">decisions</text>

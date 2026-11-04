@@ -1,8 +1,8 @@
 /* Permit Engine public site: layout and page utilities. Every value comes from the design-system tokens. */
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-/* Above 1180px the 65px header is sticky: fragment jumps and focus scrolling stop just below it. */
-@media (min-width: 1181px) { html { scroll-padding-top: calc(65px + var(--pe-space-4)); } }
+/* Above 1320px the 65px header is sticky: fragment jumps and focus scrolling stop just below it. */
+@media (min-width: 1321px) { html { scroll-padding-top: calc(65px + var(--pe-space-4)); } }
 body.site { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: var(--pe-surface); }
 .site-main { flex: 1 0 auto; }
 .site-wrap { width: 100%; max-width: var(--pe-content-max); margin: 0 auto; padding-left: max(var(--pe-space-4), env(safe-area-inset-left, 0px)); padding-right: max(var(--pe-space-4), env(safe-area-inset-right, 0px)); box-sizing: border-box; }
@@ -28,16 +28,16 @@ body.site { margin: 0; min-height: 100vh; display: flex; flex-direction: column;
 /* The label never changes; aria-pressed carries the state ("Dark theme, pressed" while the dark theme is on). */
 .site-theme[aria-pressed="true"] { border-color: var(--pe-heading); background: var(--pe-surface-tint); }
 .site-theme:focus-visible, .site-nav a:focus-visible, .site-brand:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 2px; }
-/* Below 1180px the full row (brand, six links, labelled toggle) no longer fits on one line: the nav takes its own row
+/* Below 1320px the full row (brand, nine links, toggle) no longer fits on one line: the nav takes its own row
    and wraps, so every link, including the current page, stays in view on a phone. */
-@media (max-width: 1180px) {
+@media (max-width: 1320px) {
   .site-hd { position: static; }
   .site-hd__row { padding-top: var(--pe-space-3); padding-bottom: var(--pe-space-3); gap: var(--pe-space-3); }
   .site-nav { order: 3; margin-left: 0; width: 100%; }
   .site-theme { margin-left: auto; }
 }
-/* Visually hidden on narrow screens, but still the button's accessible name. */
-@media (max-width: 980px) {
+/* Visually hidden except on phones-to-desktops where the nav has its own row, but still the button's accessible name. */
+@media (max-width: 980px), (min-width: 1321px) {
   .site-theme__label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 }
 
@@ -179,3 +179,131 @@ a.site-card:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 
 .site-ft__links { display: flex; gap: var(--pe-space-5); margin: 0; padding: 0; list-style: none; }
 .site-ft a { color: var(--pe-ink-inverse); font: 600 var(--pe-text-label-size)/1 var(--pe-font-text); }
 .site-ft a:focus-visible { outline: 2px solid var(--pe-sky); outline-offset: 2px; }
+
+/* The notice on every page: what is synthetic and simulated, and where the poster note is. */
+.site-banner { margin: 0; background: var(--pe-surface-tint); border-bottom: var(--pe-border-hairline) solid var(--pe-hairline); font: 400 var(--pe-text-small-size)/var(--pe-text-small-line) var(--pe-font-text); color: var(--pe-ink); }
+.site-banner__row { display: flex; flex-wrap: wrap; justify-content: space-between; column-gap: var(--pe-space-5); row-gap: var(--pe-space-1); padding-top: var(--pe-space-2); padding-bottom: var(--pe-space-2); }
+
+/* The demo link's note in the hero. */
+.site-demo-note { display: grid; gap: var(--pe-space-3); padding: var(--pe-space-4); border: var(--pe-border-hairline) solid var(--pe-hairline); border-radius: var(--pe-radius-md); max-width: 86ch; }
+.site-demo-note p { margin: 0; }
+.site-demo-note__status { display: flex; flex-wrap: wrap; align-items: center; gap: var(--pe-space-3); }
+
+/* The stages of a case. */
+.site-stages { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--pe-space-4) var(--pe-space-6); }
+@media (min-width: 900px) { .site-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); grid-auto-flow: column; } }
+.site-stages > li { display: grid; grid-template-columns: 2.2em minmax(0, 1fr); column-gap: var(--pe-space-2); align-items: start; padding-top: var(--pe-space-3); border-top: var(--pe-border-hairline) solid var(--pe-hairline); }
+.site-stages__n { font: 800 var(--pe-text-h3-size)/1.1 var(--pe-font-display); color: var(--pe-heading); font-variant-numeric: tabular-nums lining-nums; }
+.site-stages__body { display: grid; gap: var(--pe-space-2); }
+.site-stages__body p { margin: 0; }
+.site-stages__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--pe-space-2); }
+
+/* A plain word in a box: who does a stage, or that a thing is not built. Not a permit status, so no status colour. */
+.site-tag { display: inline-block; padding: 2px var(--pe-space-2); border: var(--pe-border-hairline) solid var(--pe-border-strong); border-radius: var(--pe-radius-sm); font: 600 var(--pe-text-label-size)/1.4 var(--pe-font-text); color: var(--pe-heading); white-space: nowrap; }
+
+/* Label and text pairs, such as a requirement's four statuses. */
+.site-status-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--pe-space-3); }
+.site-status-list > li { display: grid; grid-template-columns: 8em minmax(0, 1fr); gap: var(--pe-space-3); align-items: start; }
+
+/* One tree's leaves: three weights as one bar, with the numbers in words beside it. */
+.site-leaves { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--pe-space-4); }
+.site-leaves > li { display: grid; gap: var(--pe-space-1); }
+.site-leaves__bar { display: flex; gap: 2px; height: 14px; }
+.site-leaves__seg { flex-basis: 0; min-width: 3px; }
+.site-leaves__seg:first-child { border-radius: 4px 0 0 4px; }
+.site-leaves__seg:last-child { border-radius: 0 4px 4px 0; }
+.site-leaves__seg--0 { background: color-mix(in srgb, var(--pe-heading) 22%, var(--pe-surface)); }
+.site-leaves__seg--1 { background: color-mix(in srgb, var(--pe-heading) 55%, var(--pe-surface)); }
+.site-leaves__seg--2 { background: var(--pe-heading); }
+
+/* The stepped architecture diagrams. Tokens only, so both themes follow. */
+.site-steps { display: grid; gap: var(--pe-space-4); min-width: 0; scroll-margin-top: var(--pe-space-8); }
+.site-steps__controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--pe-space-3); }
+.site-steps__controls[hidden] { display: none; }
+.site-steps__pos { font: 600 var(--pe-text-label-size)/1.2 var(--pe-font-text); color: var(--pe-ink); min-width: 7em; text-align: center; }
+.site-steps__controls .pe-button:disabled { opacity: 0.45; cursor: default; }
+.site-steps__frames { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--pe-space-6); }
+.site-steps__frame { display: grid; gap: var(--pe-space-4); align-items: start; min-width: 0; }
+.site-steps__frame[hidden] { display: none; }
+@media (min-width: 900px) { .site-steps__frame { grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: var(--pe-space-6); } }
+.site-steps__text { display: grid; gap: var(--pe-space-2); }
+.site-steps__text p { margin: 0; }
+.site-steps__who { font: 700 var(--pe-text-h4-size)/var(--pe-text-h4-line) var(--pe-font-display); color: var(--pe-heading); }
+.site-steps__all { font: 400 var(--pe-text-small-size)/var(--pe-text-small-line) var(--pe-font-text); }
+.site-steps__all summary, .site-fm__tests summary, .site-table-details summary { cursor: pointer; font-weight: 600; color: var(--pe-heading); }
+.site-steps__all summary:focus-visible, .site-fm__tests summary:focus-visible, .site-table-details summary:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 2px; }
+.site-steps__all ol { margin: var(--pe-space-3) 0 0; padding-left: 1.4em; display: grid; gap: var(--pe-space-2); max-width: var(--pe-measure); }
+.site-arch { display: block; width: 100%; height: auto; }
+.site-arch rect { fill: var(--pe-surface); stroke: var(--pe-border-strong); stroke-width: 1; }
+.site-arch text { font: 500 12.5px var(--pe-font-text); fill: var(--pe-ink-muted); }
+.site-arch line { stroke: var(--pe-border-strong); stroke-width: 1; }
+.site-arch__node--external rect { stroke-dasharray: 5 3; }
+.site-arch__node.is-seen rect { stroke: var(--pe-heading); }
+.site-arch__node.is-seen text { fill: var(--pe-ink); }
+.site-arch__node.is-source rect { fill: var(--pe-surface-inverse); stroke: var(--pe-surface-inverse); }
+.site-arch__node.is-source text { fill: var(--pe-ink-inverse); font-weight: 700; }
+.site-arch__node.is-source line { stroke: var(--pe-ink-inverse-muted); }
+.site-arch__node.is-destination rect { fill: var(--pe-surface-tint); stroke: var(--pe-heading); stroke-width: 2; }
+.site-arch__node.is-destination text { fill: var(--pe-heading); font-weight: 700; }
+.site-arch__node.is-destination line { stroke: var(--pe-heading); }
+[data-theme="dark"] .site-arch__node.is-source rect { stroke: var(--pe-border-strong); }
+.site-arch__edge { fill: none; stroke: var(--pe-heading); stroke-width: 2.5; stroke-linecap: round; }
+.site-arch__head { fill: var(--pe-heading); }
+.site-arch-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--pe-space-2) var(--pe-space-5); }
+.site-arch-legend li { display: inline-flex; align-items: center; gap: var(--pe-space-2); }
+.site-arch-legend__box { display: inline-block; position: relative; width: 22px; height: 14px; border-radius: 3px; border: 1px solid var(--pe-border-strong); box-sizing: border-box; }
+.site-arch-legend__box--source { background: var(--pe-surface-inverse); border-color: var(--pe-surface-inverse); }
+[data-theme="dark"] .site-arch-legend__box--source { border-color: var(--pe-border-strong); }
+.site-arch-legend__box--destination { background: var(--pe-surface-tint); border: 2px solid var(--pe-heading); }
+.site-arch-legend__box--external { border-style: dashed; }
+.site-arch-legend__box--store::before { content: ''; position: absolute; left: 0; right: 0; top: 2px; border-top: 1px solid var(--pe-border-strong); }
+
+/* The failure table: four columns on a wide screen, a stacked card per row on a phone. */
+.site-fm-wrap { min-width: 0; }
+.site-fm { width: 100%; border-collapse: collapse; table-layout: fixed; font: 400 var(--pe-text-small-size)/var(--pe-text-small-line) var(--pe-font-text); color: var(--pe-ink); }
+.site-fm thead th { text-align: left; font: 600 var(--pe-text-label-size)/1.3 var(--pe-font-text); color: var(--pe-ink-muted); padding: var(--pe-space-2) var(--pe-space-3); border-bottom: var(--pe-border-hairline) solid var(--pe-border-strong); }
+.site-fm tbody th { text-align: left; font: 700 var(--pe-text-small-size)/var(--pe-text-small-line) var(--pe-font-text); color: var(--pe-heading); }
+.site-fm tbody th, .site-fm td { padding: var(--pe-space-3); vertical-align: top; border-bottom: var(--pe-border-hairline) solid var(--pe-hairline); overflow-wrap: anywhere; }
+.site-fm td p { margin: var(--pe-space-2) 0 0; }
+.site-fm__mark { display: block; overflow-wrap: normal; }
+.site-fm__tests { margin-top: var(--pe-space-2); }
+.site-fm__tests ul { list-style: none; margin: var(--pe-space-2) 0 0; padding: 0; display: grid; gap: var(--pe-space-2); }
+.site-fm__tests li { font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+@media (max-width: 899px) {
+  .site-fm thead { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); border: 0; }
+  .site-fm, .site-fm tbody, .site-fm tr, .site-fm tbody th, .site-fm td { display: block; width: 100%; box-sizing: border-box; }
+  .site-fm tr { padding: var(--pe-space-3) 0; border-bottom: var(--pe-border-hairline) solid var(--pe-border-strong); }
+  .site-fm tbody th, .site-fm td { border-bottom: 0; padding: var(--pe-space-1) 0; }
+  .site-fm td::before { content: attr(data-label); display: block; font: 600 var(--pe-text-label-size)/1.4 var(--pe-font-text); color: var(--pe-ink-muted); }
+}
+
+/* The poster note: what the poster says, and what is true now. */
+.site-rows { list-style: none; margin: 0; padding: 0; display: grid; }
+.site-rows__row { display: grid; gap: var(--pe-space-3); padding: var(--pe-space-4) 0; border-top: var(--pe-border-hairline) solid var(--pe-hairline); }
+@media (min-width: 760px) { .site-rows__row { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--pe-space-6); } }
+.site-rows__row p { margin: var(--pe-space-1) 0 0; }
+.site-rows__label { display: flex; flex-wrap: wrap; align-items: center; gap: var(--pe-space-2); font-weight: 600; color: var(--pe-ink-muted); min-height: 24px; }
+.site-rows__said p { color: var(--pe-ink-muted); }
+
+/* Results. */
+.site-pending { border-style: dashed; border-color: var(--pe-border-strong); }
+.site-pending p { margin: 0; }
+.site-verdict { display: grid; gap: var(--pe-space-2); justify-items: start; padding: var(--pe-space-5); border: 2px solid var(--pe-heading); border-radius: var(--pe-radius-md); background: var(--pe-surface); }
+.site-verdict p { margin: 0; }
+.site-verdict--fail { border-color: var(--pe-danger, var(--pe-heading)); }
+.site-conditions { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--pe-space-3); }
+@media (min-width: 760px) { .site-conditions { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.site-conditions > li { gap: var(--pe-space-2); justify-items: start; }
+.site-table-details { font: 400 var(--pe-text-small-size)/var(--pe-text-small-line) var(--pe-font-text); }
+.site-table-details > .site-table-scroll { margin-top: var(--pe-space-3); }
+.site-spark { margin: 0; display: grid; gap: var(--pe-space-2); align-content: start; min-width: 0; }
+.site-spark figcaption { display: grid; gap: var(--pe-space-1); color: var(--pe-ink); }
+.site-spark figcaption strong { font: 700 var(--pe-text-h4-size)/var(--pe-text-h4-line) var(--pe-font-display); color: var(--pe-heading); }
+.site-spark svg { display: block; width: 100%; height: auto; }
+.site-spark p { margin: 0; }
+.site-spark__grid { stroke: var(--pe-hairline); stroke-width: 1; }
+.site-spark__tick { font: 400 11px var(--pe-font-text); fill: var(--pe-ink-muted); }
+.site-spark__line { fill: none; stroke: var(--pe-heading); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.site-spark__dot { fill: var(--pe-heading); stroke: var(--pe-surface); stroke-width: 2; }
+.site-spark__end { font: 700 12px var(--pe-font-text); fill: var(--pe-heading); }
+.site-spark__reference { stroke: var(--pe-border-strong); stroke-width: 1; stroke-dasharray: 4 3; }

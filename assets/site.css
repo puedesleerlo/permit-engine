@@ -464,7 +464,7 @@ a.site-card:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 
 /* ---------- Landing page ---------- */
 .lp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .lp code { font: 500 var(--pe-text-mono-size)/var(--pe-text-mono-line) var(--pe-font-mono); font-stretch: 87.5%; }
-.lp-title { margin: 0; max-width: 17ch; font: 800 clamp(50px, 7.7vw, 116px)/0.98 var(--pe-font-display); letter-spacing: -0.035em; color: var(--pe-heading); text-wrap: balance; }
+.lp-title { margin: 0; max-width: 17ch; font: 800 clamp(40px, 5.2vw, 76px)/1.02 var(--pe-font-display); letter-spacing: -0.035em; color: var(--pe-heading); text-wrap: balance; }
 .lp-h2 { margin: 0; max-width: 20ch; font: 800 clamp(34px, 4.5vw, 60px)/1.04 var(--pe-font-display); letter-spacing: -0.025em; color: var(--pe-heading); text-wrap: balance; }
 .lp-h2--inv { color: var(--pe-ink-inverse); }
 .lp-lead { margin: 0; max-width: 62ch; font: 400 clamp(18px, 1.5vw, 21px)/1.5 var(--pe-font-text); color: var(--pe-ink); }
@@ -1039,7 +1039,6 @@ a.site-card:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 
 
 /* ---------- Next steps and small invitations ---------- */
 .site-banner__row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--pe-space-1) var(--pe-space-4); }
-.lp-hero__result { margin: var(--pe-space-4) 0 0; max-width: 44ch; padding-left: var(--pe-space-3); border-left: 4px solid var(--pe-amber-light); font: 600 var(--pe-text-body-size)/1.45 var(--pe-font-text); color: var(--pe-heading); }
 .ns { display: grid; gap: var(--pe-space-4); }
 .ns-list { margin: var(--pe-space-3) 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--pe-space-5); }
 .ns-list li { display: grid; gap: var(--pe-space-2); align-content: start; justify-items: start; }

@@ -529,11 +529,6 @@ a.site-card:focus-visible { outline: 2px solid var(--pe-focus); outline-offset: 
 .lp-date--bad { border-color: var(--pe-amber-light); }
 .lp-neq { font: 800 34px/1 var(--pe-font-display); color: var(--pe-amber-light); animation: lp-beat 4s ease-in-out infinite; }
 .lp-stamp { position: absolute; right: var(--pe-space-5); bottom: var(--pe-space-5); padding: 6px 14px; border: 3px solid #b5620b; border-radius: var(--pe-radius-sm); background: rgba(255, 255, 255, 0.82); font: 800 clamp(20px, 2vw, 26px)/1.1 var(--pe-font-display); color: #b5620b; transform: rotate(-5deg); animation: lp-stamp 8s ease-out infinite; }
-.lp-jev { display: grid; gap: var(--pe-space-2); }
-.lp-jev__q { margin: 0; font: 600 18px/1.3 var(--pe-font-text); }
-.lp-jev__n { margin: 0; font: 500 clamp(64px, 8vw, 112px)/1 var(--pe-font-mono); font-stretch: 87.5%; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
-.lp-jev__bar { display: block; height: 10px; border-radius: 10px; background: rgba(255, 255, 255, 0.16); overflow: hidden; margin-bottom: var(--pe-space-2); }
-.lp-jev__bar i { display: block; height: 100%; background: var(--pe-sky); transition: width 240ms linear; }
 .lp-treewrap { display: grid; gap: var(--pe-space-3); }
 .lp-tree { display: block; width: 100%; height: auto; }
 .lp-tree--narrow { display: none; }
